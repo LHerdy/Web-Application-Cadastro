@@ -1,17 +1,18 @@
 package br.sistema.cadastro.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
-
+	
 	@RequestMapping("/")
-	public String login(Model model, HttpServletRequest request) {
-		String mensagem = request.getParameter("mensagem");
-		model.addAttribute("mensagem", mensagem);
-		return "login";
+	public ModelAndView home() {
+		ModelAndView mav = new ModelAndView ("login");
+		mav.addObject("mensagem");
+		return mav;
+		 }
 	}
-}
+
+ 
